@@ -264,7 +264,7 @@
     </div>
   </div>
 
-  <!-- Auth Modal -->
+  <!-- AppAuth Modal -->
   <app-auth />
 </template>
 
