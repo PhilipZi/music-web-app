@@ -269,7 +269,7 @@
 </template>
 
 <script>
-import AppHeader from './components/AppHeader.vue'
+import AppHeader from './components/Header.vue'
 import AppAuth from './components/AppAuth.vue'
 import { mapWritableState } from 'pinia'
 import useUserStore from './stores/user'
