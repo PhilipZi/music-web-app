@@ -7,7 +7,7 @@ import useUserStore from '../stores/user'
 const routes = [
   {
     name: 'home',
-    path: '/',
+    path: '',
     component: HomeView
   },
   {
