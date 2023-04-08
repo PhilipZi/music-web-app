@@ -5,7 +5,7 @@
       <RouterLink
         class="text-white font-bold uppercase text-2xl mr-4"
         href="#"
-        to="/"
+        :to="{ name: 'home' }"
         exact-active-class="no-active"
         >Music</RouterLink
       >
@@ -14,7 +14,7 @@
         <!-- Primary Navigation -->
         <ul class="flex flex-row mt-1">
           <li>
-            <RouterLink class="px-2 text-white" to="/about">About</RouterLink>
+            <RouterLink class="px-2 text-white" :to="{ name: 'about' }">About</RouterLink>
           </li>
           <!-- Navigation Links -->
 
@@ -25,7 +25,9 @@
           </li>
           <template v-else>
             <li>
-              <RouterLink class="px-2 text-white" href="#" to="/manage">Manage</RouterLink>
+              <RouterLink class="px-2 text-white" href="#" :to="{ name: 'manage' }"
+                >Manage</RouterLink
+              >
             </li>
             <li>
               <a class="px-2 text-white" href="#" @click.prevent="userStore.signOut">Logout</a>
