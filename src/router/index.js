@@ -22,6 +22,10 @@ const routes = [
   {
     path: '/manage',
     redirect: { name: 'manage' }
+  },
+  {
+    path: '/:catchAll(.*)*',
+    redirect: { name: 'home' }
   }
 ]
 
