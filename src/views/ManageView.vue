@@ -102,24 +102,28 @@
 
 <script>
 import AppUpload from '../components/Upload.vue'
+import { songsCollection, auth } from '../includes/firebase'
 // import useUserStore from '../stores/user'
 
 export default {
   name: 'manage',
-  components: { AppUpload }
-  // beforRouteLeave(to, from, next) {
-  //   this.$refs.upload.cancelUploads()
-  //   next()
-  // }
-  // beforeRouteEnter(to, from, next) {
-  //   const store = useUserStore()
-  //   if (store.userLoggedIn) {
-  //     next()
-  //   } else {
-  //     next({
-  //       name: 'home'
-  //     })
-  //   }
-  // }
+  components: { AppUpload },
+  async created() {
+    const snapshot = await songsCollection.where('uid', '==', auth.currentUser.uid).get()
+  }
 }
+// beforRouteLeave(to, from, next) {
+//   this.$refs.upload.cancelUploads()
+//   next()
+// }
+// beforeRouteEnter(to, from, next) {
+//   const store = useUserStore()
+//   if (store.userLoggedIn) {
+//     next()
+//   } else {
+//     next({
+//       name: 'home'
+//     })
+//   }
+// }
 </script>
