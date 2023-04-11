@@ -32,7 +32,7 @@
       </div>
       <!-- Playlist -->
       <ol id="playlist">
-        <song-item />
+        <SongItem />
       </ol>
       <!-- .. end Playlist -->
     </div>
@@ -41,7 +41,7 @@
 
 <script>
 import { songsCollection } from '../includes/firebase'
-import SongItem from '../components/songItem.vue'
+import SongItem from '../components/SongsItem.vue'
 
 export default {
   name: 'HomeView',
