@@ -34,7 +34,7 @@ const routes = [
   },
   {
     name: 'song',
-    path: ' /song/:id'
+    path: '/song/:id'
   },
   {
     path: '/:catchAll(.*)*',
