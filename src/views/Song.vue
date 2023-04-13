@@ -5,7 +5,6 @@
       style="background-image: url(/assets/img/song-header.png)"
     ></div>
     <div class="container mx-auto flex items-center">
-      <!-- Play/Pause Button -->
       <button
         type="button"
         class="z-50 h-24 w-24 text-3xl bg-white text-black rounded-full focus:outline-none"
@@ -13,17 +12,15 @@
         <i class="fas fa-play"></i>
       </button>
       <div class="z-50 text-left ml-8">
-        <!-- Song Info -->
-        <div class="text-3xl font-bold">Song Title</div>
-        <div>Blues Rock</div>
+        <div class="text-3xl font-bold">{{ song.modified_name }}</div>
+        <div>{{ song.genre }}</div>
       </div>
     </div>
   </section>
-  <!-- Form -->
+
   <section class="container mx-auto mt-6">
     <div class="bg-white rounded border border-gray-200 relative flex flex-col">
       <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
-        <!-- Comment Count -->
         <span class="card-title">Comments (15)</span>
         <i class="fa fa-comments float-right text-green-400 text-2xl"></i>
       </div>
@@ -37,7 +34,7 @@
             Submit
           </button>
         </form>
-        <!-- Sort Comments -->
+
         <select
           class="block mt-4 py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
         >
@@ -47,10 +44,9 @@
       </div>
     </div>
   </section>
-  <!-- Comments -->
+
   <ul class="container mx-auto">
     <li class="p-6 bg-gray-50 border border-gray-200">
-      <!-- Comment Author -->
       <div class="mb-5">
         <div class="font-bold">Elaine Dreyfuss</div>
         <time>5 mins ago</time>
@@ -62,7 +58,6 @@
       </p>
     </li>
     <li class="p-6 bg-gray-50 border border-gray-200">
-      <!-- Comment Author -->
       <div class="mb-5">
         <div class="font-bold">Elaine Dreyfuss</div>
         <time>5 mins ago</time>
@@ -74,7 +69,6 @@
       </p>
     </li>
     <li class="p-6 bg-gray-50 border border-gray-200">
-      <!-- Comment Author -->
       <div class="mb-5">
         <div class="font-bold">Elaine Dreyfuss</div>
         <time>5 mins ago</time>
@@ -86,7 +80,6 @@
       </p>
     </li>
     <li class="p-6 bg-gray-50 border border-gray-200">
-      <!-- Comment Author -->
       <div class="mb-5">
         <div class="font-bold">Elaine Dreyfuss</div>
         <time>5 mins ago</time>
@@ -98,7 +91,6 @@
       </p>
     </li>
     <li class="p-6 bg-gray-50 border border-gray-200">
-      <!-- Comment Author -->
       <div class="mb-5">
         <div class="font-bold">Elaine Dreyfuss</div>
         <time>5 mins ago</time>
@@ -110,7 +102,6 @@
       </p>
     </li>
     <li class="p-6 bg-gray-50 border border-gray-200">
-      <!-- Comment Author -->
       <div class="mb-5">
         <div class="font-bold">Elaine Dreyfuss</div>
         <time>5 mins ago</time>
@@ -128,9 +119,19 @@
 import { songsCollection } from '../includes/firebase'
 
 export default {
-  name: 'SongView',
+  name: 'Song',
+  data() {
+    return { song: {} }
+  },
   async created() {
-    const docSnapshot = await songsCollection.doc(this.$forceUpdate.params.id).get()
+    const docSnapshot = await songsCollection.doc(this.$route.params.id).get()
+
+    if (!docSnapshot.exists) {
+      this.$router.push({ name: 'home' })
+      return
+    }
+
+    this.song = docSnapshot.data()
   }
 }
 </script>
