@@ -128,6 +128,8 @@ export default {
 
       await commentsCollection.add(comment)
 
+      this.getComments()
+
       this.comment_in_submission = false
       this.comment_alert_variant = 'bg-green-500'
       this.comment_alert_message = 'Comment added!'
