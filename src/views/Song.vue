@@ -25,15 +25,18 @@
         <i class="fa fa-comments float-right text-green-400 text-2xl"></i>
       </div>
       <div class="p-6">
-        <form>
-          <textarea
+        <vee-form :validation-schema="schema">
+          <vee-field
+            as="textarea"
+            name="comment"
             class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded mb-4"
             placeholder="Your comment here..."
-          ></textarea>
+          ></vee-field>
+          <ErrorMessage class="text-red-600" name="comment" />
           <button type="submit" class="py-1.5 px-3 rounded text-white bg-green-600 block">
             Submit
           </button>
-        </form>
+        </vee-form>
 
         <select
           class="block mt-4 py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
@@ -121,7 +124,7 @@ import { songsCollection } from '../includes/firebase'
 export default {
   name: 'Song',
   data() {
-    return { song: {} }
+    return { song: {}, schema: 'required | min:3' }
   },
   async created() {
     const docSnapshot = await songsCollection.doc(this.$route.params.id).get()
