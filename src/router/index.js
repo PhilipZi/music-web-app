@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import ManageView from '../views/ManageView.vue'
 import useUserStore from '../stores/user'
-import SongView from '../views/SongView.vue'
+import Song from '../views/Song.vue'
 
 const routes = [
   {
@@ -34,12 +34,12 @@ const routes = [
   },
   {
     name: 'song',
-    path: '/song/:id'
+    path: '/song/:id',
+    component: Song
   },
   {
     path: '/:catchAll(.*)*',
-    redirect: { name: 'home' },
-    component: SongView
+    redirect: { name: 'home' }
   }
 ]
 
