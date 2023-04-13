@@ -130,6 +130,7 @@ export default {
   },
   methods: {
     ...mapActions(usePlayerStore, ['newSong']),
+
     async addComment(values, { resetForm }) {
       this.comment_in_submission = true
       this.comment_show_alert = true
