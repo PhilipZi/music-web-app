@@ -41,7 +41,7 @@
 
 <script>
 import { songsCollection } from '../includes/firebase'
-import SongItem from '../components/SongsItem.vue'
+import SongItem from '../components/SongItem.vue'
 
 export default {
   name: 'HomeView',
