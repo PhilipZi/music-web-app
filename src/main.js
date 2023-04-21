@@ -15,7 +15,7 @@ import './assets/base.css'
 import './assets/main.css'
 import 'nprogress/nprogress.css'
 
-registerSW({ inmediate: true })
+registerSW({ immediate: true })
 
 progressBar(router)
 
